@@ -1,0 +1,21 @@
+{
+  "name": "tree-sort",
+  "version": "0.0.1",
+  "description": "simple restified filestorage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/cherepanov/tree-sort"
+  },
+  "author": "a@cherepanov.info",
+  "license": "GPL",
+  "dependencies": {
+    "express": "*",
+    "faker": "*",
+    "restify": "*",
+    "express-babelify-middleware": "*"
+  }
+}
