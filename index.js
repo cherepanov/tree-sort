@@ -16,7 +16,6 @@ var app = express();
 
 //FIXME: sourcemaps
 app.use('/widget/widget.js', babelify('./html/widget/widget.js', {cache: 'dynamic', extensions: ['.js', '.json', '.es6'], debug: true}));
-//app.use('/widget/WidgetCtl.js', babelify('./html/widget/WidgetCtl.js', {cache: 'dynamic'}));
 app.use(express.static('./html'));
 
 app.get('/data', function (req, res, next) {

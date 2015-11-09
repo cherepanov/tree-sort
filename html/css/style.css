@@ -3,4 +3,5 @@
     margin: 0 auto;
     height: 800px;
     overflow: auto;
+    display: block;
 }

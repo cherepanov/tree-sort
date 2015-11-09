@@ -15,15 +15,16 @@
         input[type="checkbox"] ~ ul {
             /*transform: ScaleY(0);*/
             /*transform-origin: top;*/
-            /*transition: transform 0.26s ease;*/
+            /*transition: transform 0.3s linear;*/
             max-height: 0px;
-            transition: max-height 0.5s linear;
-
+            transition: max-height 0.3s linear;
             overflow: hidden;
+            margin-bottom: 2px;
         }
         input[type="checkbox"]:checked ~ ul {
             /*transform: ScaleY(1);*/
             max-height: 1000px;
+            margin: 8px;
         }
 
         input[type="search"] {
@@ -49,11 +50,15 @@
             content:"\0394";
             display: inline-table;
             transform: rotate(90deg);
-            transition: all 0.4s ease;
+            transition: transform 0.4s ease;
         }
 
         label:after {
             content: " (" attr(data-count) ")";
+        }
+
+        label[data-count="0"] ~ ul li.hidden {
+            display: list-item;
         }
 
         input[type="checkbox"]:checked ~ label:before {
@@ -71,7 +76,8 @@
         }
 
         div:not(.hidden) li.hidden {
-            color:gray;
+            /*color:gray;*/
+            display: none;
         }
 
         ul, li {
@@ -88,7 +94,7 @@
             box-sizing: border-box;
             background-color: aliceblue;
             border-radius: 10px;
-            width: 32%;
+            width: 31%;
             margin: 2px;
         }
         #list > div.hidden {
