@@ -1,0 +1,103 @@
+<!--<style rel="stylesheet" href="widget.css"></style>-->
+
+<template id="template">
+    <!-- TODO: styles import -->
+    <!-- TODO: themes -->
+    <style>
+        html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}
+
+        input[type="checkbox"] {
+            opacity: 0;
+            display: inline-block;
+            width: 20px;
+        }
+
+        input[type="checkbox"] ~ ul {
+            /*transform: ScaleY(0);*/
+            /*transform-origin: top;*/
+            /*transition: transform 0.26s ease;*/
+            max-height: 0px;
+            transition: max-height 0.5s linear;
+
+            overflow: hidden;
+        }
+        input[type="checkbox"]:checked ~ ul {
+            /*transform: ScaleY(1);*/
+            max-height: 1000px;
+        }
+
+        input[type="search"] {
+            margin: 10px;
+            width: 90%;
+        }
+
+        input[type="search"].error {
+            box-shadow: 1px 1px 6px #990000;
+            border: 1px solid transparent;
+        }
+
+        label {
+            font-weight: bold;
+            margin-left: -20px;
+        }
+
+        label:hover, label:before:hover {
+            cursor: pointer;
+        }
+
+        label:before {
+            content:"\0394";
+            display: inline-table;
+            transform: rotate(90deg);
+            transition: all 0.4s ease;
+        }
+
+        label:after {
+            content: " (" attr(data-count) ")";
+        }
+
+        input[type="checkbox"]:checked ~ label:before {
+            transform: rotate(180deg);
+        }
+
+        #list {
+            display: flex;
+            flex-wrap: wrap;
+            /*flex-direction: column-reverse;*/
+        }
+
+        ul.hidden {
+            display: none;
+        }
+
+        div:not(.hidden) li.hidden {
+            color:gray;
+        }
+
+        ul, li {
+            white-space: nowrap;
+        }
+
+        li:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        #list > div {
+            display: inline-table;
+            box-sizing: border-box;
+            background-color: aliceblue;
+            border-radius: 10px;
+            width: 32%;
+            margin: 2px;
+        }
+        #list > div.hidden {
+            display: none;
+        }
+    </style>
+    <input type="search" id="search">
+    <div id="list"></div>
+</template>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.3/packery.pkgd.min.js"></script>
+<script src="widget.js"></script>

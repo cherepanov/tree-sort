@@ -8,12 +8,15 @@ var express = require("express");
 var faker = require('faker');
 let babelify = require('express-babelify-middleware');
 //FIXME: submit watchify fix
+let open = require('open');
 
 faker.locale = 'ru';
 
 var app = express();
 
-app.use('/app.js', babelify('./html/app.js', {cache: 'dynamic'}));
+//FIXME: sourcemaps
+app.use('/widget/widget.js', babelify('./html/widget/widget.js', {cache: 'dynamic', extensions: ['.js', '.json', '.es6'], debug: true}));
+//app.use('/widget/WidgetCtl.js', babelify('./html/widget/WidgetCtl.js', {cache: 'dynamic'}));
 app.use(express.static('./html'));
 
 app.get('/data', function (req, res, next) {
@@ -49,3 +52,4 @@ app.get('/data', function (req, res, next) {
 });
 
 app.listen(8282);
+open('http://localhost:8282/');
